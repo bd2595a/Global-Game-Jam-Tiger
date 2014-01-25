@@ -54,9 +54,9 @@ public class OVRPlayerController : OVRComponent
 	public float Acceleration 	   = 0.1f;
 	public float Damping 		   = 0.15f;
 	public float BackAndSideDampen = 0.5f;
-	public float JumpForce 		   = 50f;
+	public float JumpForce 		   = 70f;
 	public float RotationAmount    = 1.5f;
-	public float GravityModifier   = -0.1f;
+	public float GravityModifier   = 0.1f;
 		
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
@@ -162,7 +162,7 @@ public class OVRPlayerController : OVRComponent
 		if (Controller.isGrounded && FallSpeed <= 0)
 			FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));	
 		else
-			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * DeltaTime);	
+			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.0017f)) * DeltaTime);	
 
 		moveDirection.y += FallSpeed * DeltaTime;
 
