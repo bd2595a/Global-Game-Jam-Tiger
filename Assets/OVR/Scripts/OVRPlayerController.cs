@@ -297,11 +297,15 @@ public class OVRPlayerController : OVRComponent
 		// Move
 		if(DirXform != null)
 		{
+			if(OVRGamepadController.GPC_GetButton((int)OVRGamepadController.Button.A))
+			   {Jump ();}
+
 			float leftAxisY = 
 				OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftYAxis);
 				
 			float leftAxisX = 
 			OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftXAxis);
+
 						
 			if(leftAxisY > 0.0f)
 	    		MoveThrottle += leftAxisY *
