@@ -54,9 +54,9 @@ public class OVRPlayerController : OVRComponent
 	public float Acceleration 	   = 0.1f;
 	public float Damping 		   = 0.15f;
 	public float BackAndSideDampen = 0.5f;
-	public float JumpForce 		   = 0.3f;
+	public float JumpForce 		   = 50f;
 	public float RotationAmount    = 1.5f;
-	public float GravityModifier   = 0.379f;
+	public float GravityModifier   = 0.1f;
 		
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
@@ -207,6 +207,7 @@ public class OVRPlayerController : OVRComponent
 		bool moveLeft  	 = false;
 		bool moveRight   = false;
 		bool moveBack    = false;
+		bool jumped = false;
 				
 		MoveScale = 1.0f;
 			
@@ -220,6 +221,7 @@ public class OVRPlayerController : OVRComponent
 		if (Input.GetKey(KeyCode.A)) moveLeft	 = true;
 		if (Input.GetKey(KeyCode.S)) moveBack 	 = true; 
 		if (Input.GetKey(KeyCode.D)) moveRight 	 = true; 
+		if (Input.GetKey(KeyCode.F)) jumped = true;
 		// Arrow keys
 		if (Input.GetKey(KeyCode.UpArrow))    moveForward = true;
 		if (Input.GetKey(KeyCode.LeftArrow))  moveLeft 	  = true;
@@ -231,8 +233,8 @@ public class OVRPlayerController : OVRComponent
 			MoveScale = 0.70710678f;
 			
 		// No positional movement if we are in the air
-		if (!Controller.isGrounded)	
-			MoveScale = 0.0f;
+		//if (!Controller.isGrounded)	
+		//	MoveScale = 0.0f;
 			
 		MoveScale *= DeltaTime;
 			
@@ -253,6 +255,8 @@ public class OVRPlayerController : OVRComponent
 				MoveThrottle += DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
 			if (moveRight)
 				MoveThrottle += DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
+			if (jumped)
+				Jump ();
 		}
 			
 		// Rotate
