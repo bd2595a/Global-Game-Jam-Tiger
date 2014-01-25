@@ -19,6 +19,7 @@
     
     var distToPlayer = (transform.position - player.position).sqrMagnitude;
      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
+     
     //if( distToPlayer < 5.0 ) {
     //print ("You lost");
     //}

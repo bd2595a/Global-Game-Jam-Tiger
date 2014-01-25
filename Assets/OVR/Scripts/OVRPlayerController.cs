@@ -61,7 +61,8 @@ public class OVRPlayerController : OVRComponent
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
 	private float   FallSpeed 	   = 0.0f;
-	public secondCounter = 0;
+	public float secondCounter = 0;
+	public Transform tigertiger;
 	
 	// Initial direction of controller (passed down into CameraController)
 	private Quaternion OrientationOffset = Quaternion.identity;			
@@ -139,6 +140,15 @@ public class OVRPlayerController : OVRComponent
 	new public virtual void Update()
 	{
 		base.Update();
+		secondCounter+=Time.deltaTime;
+		if (secondCounter >= 5) 
+		{
+			DestroyObject(GameObject.Find ("disposablecube"));	
+		}
+		if (secondCounter == 45)
+		{
+			Instantiate (tigertiger, new Vector3 (487.8117f, 12.22332f, 439.9105f), Quaternion.identity);
+		}
 		
 		// Test: get Y from sensor 2 
 		if(OVRDevice.SensorCount == 2)
