@@ -61,6 +61,7 @@ public class OVRPlayerController : OVRComponent
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
 	private float   FallSpeed 	   = 0.0f;
+	public secondCounter = 0;
 	
 	// Initial direction of controller (passed down into CameraController)
 	private Quaternion OrientationOffset = Quaternion.identity;			

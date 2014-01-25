@@ -13,7 +13,7 @@ Platform assembly: C:\Users\Owner\Documents\GitHub\The-Illusion-of-My-World\run_
 Loading C:\Users\Owner\Documents\GitHub\The-Illusion-of-My-World\run_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Owner\Documents\GitHub\The-Illusion-of-My-World\run_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\Owner\Documents\GitHub\The-Illusion-of-My-World\run_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.184 seconds
+- Completed reload, in  0.256 seconds
 desktop: 1280x768 60Hz; virtual: 1280x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
