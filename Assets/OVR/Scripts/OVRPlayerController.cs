@@ -56,7 +56,7 @@ public class OVRPlayerController : OVRComponent
 	public float BackAndSideDampen = 0.5f;
 	public float JumpForce 		   = 50f;
 	public float RotationAmount    = 1.5f;
-	public float GravityModifier   = 0.1f;
+	public float GravityModifier   = -0.1f;
 		
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
