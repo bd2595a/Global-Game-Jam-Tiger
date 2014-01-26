@@ -81,6 +81,7 @@ public class OVRPlayerController : OVRComponent
 	private float RotationScaleMultiplier = 1.0f; 
 	private bool  AllowMouseRotation      = true;
 	private bool  HaltUpdateMovement      = false;
+	private float[] orbPositions = new float[30];
 	
 	// TEST: Get Y from second sensor
 	private float YfromSensor2            = 0.0f;
@@ -136,6 +137,36 @@ public class OVRPlayerController : OVRComponent
 		
 		InitializeInputs();	
 		SetCameras();
+
+		//TODO: set up orbs in different places
+		orbPositions [0] = 130.6804f;
+		orbPositions [1] = 23.89691f;
+		orbPositions [2] = 297.5002f;
+
+		orbPositions [3] = 213.6685f;
+		orbPositions [4] = 15.13809f;
+		orbPositions [5] = 309.2277f;
+
+		orbPositions [6] = 237.1583f;
+		orbPositions [7] = 3.156206f;
+		orbPositions [8] = 223.4777f;
+
+		orbPositions [9] = 306.3888f;
+		orbPositions [10] = 13.81063f;
+		orbPositions [11] = 394.4182f;
+
+		orbPositions [9] = 306.3888f;
+		orbPositions [10] = 13.81063f;
+		orbPositions [11] = 394.4182f;
+
+		orbPositions [12] = 438.9704f;
+		orbPositions [13] = 9.145157f;
+		orbPositions [14] = 268.7023f;
+
+		orbPositions [15] = 557.3252f;
+		orbPositions [16] = 14.64705f;
+		orbPositions [17] = 144.8766f;
+
 	}
 		
 	// Update 
