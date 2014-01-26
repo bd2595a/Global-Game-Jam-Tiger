@@ -150,7 +150,7 @@ public class OVRPlayerController : OVRComponent
 		orbPositions [5] = 309.2277f;
 
 		orbPositions [6] = 237.1583f;
-		orbPositions [7] = 3.156206f;
+		orbPositions [7] = 2.156206f;
 		orbPositions [8] = 223.4777f;
 
 		orbPositions [9] = 306.3888f;
@@ -166,10 +166,10 @@ public class OVRPlayerController : OVRComponent
 		orbPositions [14] = 268.7023f;
 
 		orbPositions [15] = 557.3252f;
-		orbPositions [16] = 14.64705f;
+		orbPositions [16] = 10.64705f;
 		orbPositions [17] = 144.8766f;
 
-		orbPositions [18] = 557.3252f;
+		orbPositions [18] = 507.3252f;
 		orbPositions [19] = 14.64705f;
 		orbPositions [20] = 144.8766f;
 
