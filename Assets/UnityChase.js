@@ -4,21 +4,34 @@
     var speed : float = 10;
     var chaseDistance = 150;
     var lockPos : float = 0;
-     
+    public var playlist : AudioClip[];
+    var SoundSource : AudioSource;
+    function Start()
+    {
+   		SoundSource = gameObject.AddComponent(AudioSource);
+   		SoundSource.clip = playlist[Random.Range(0,3)];
+    	SoundSource.Play(); 
+    }
      
     function Update()
     {
     	
-         
+     
     if(Vector3.Distance(transform.position,player.position) <= chaseDistance)
     {
 	    transform.LookAt(player);
-	    transform.position += transform.forward*speed*Time.deltaTime;   
+	    transform.position += transform.forward*speed*Time.deltaTime;
+	    transform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
     }
      
     
     var distToPlayer = (transform.position - player.position).sqrMagnitude;
-     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
+    if(distToPlayer<10)
+    {
+    	SoundSource.clip = playlist[Random.Range(0,3)];
+    	SoundSource.Play();
+    }
+    transform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
      
     //if( distToPlayer < 5.0 ) {
     //print ("You lost");

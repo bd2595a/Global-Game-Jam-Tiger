@@ -15,6 +15,6 @@ public class orbScript : MonoBehaviour {
 	void OnTriggerEnter(Collider obj){ // turn message on when player is inside the trigger
 		OVRPlayerController.orbsCollected++;
 		print(OVRPlayerController.orbsCollected);
-		DestroyObject (obj);
+		DestroyObject (gameObject);
 	}
 }
