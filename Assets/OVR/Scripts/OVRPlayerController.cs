@@ -56,8 +56,10 @@ public class OVRPlayerController : OVRComponent
 	public float BackAndSideDampen = 0.5f;
 	public float JumpForce 		   = 70f;
 	public float RotationAmount    = 1.5f;
-	public float GravityModifier   = 0.1f;
+	public float GravityModifier   = 0.5f;
+	public static int orbsCollected=0;
 	public Transform Tigertiger;
+	public Transform tigerOrb;
 		
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
@@ -144,7 +146,7 @@ public class OVRPlayerController : OVRComponent
 		orbPositions [2] = 297.5002f;
 
 		orbPositions [3] = 213.6685f;
-		orbPositions [4] = 15.13809f;
+		orbPositions [4] = 12.13809f;
 		orbPositions [5] = 309.2277f;
 
 		orbPositions [6] = 237.1583f;
@@ -167,6 +169,18 @@ public class OVRPlayerController : OVRComponent
 		orbPositions [16] = 14.64705f;
 		orbPositions [17] = 144.8766f;
 
+		orbPositions [18] = 557.3252f;
+		orbPositions [19] = 14.64705f;
+		orbPositions [20] = 144.8766f;
+
+		orbPositions [21] = 323.0608f;
+		orbPositions [22] = 3.628395f;
+		orbPositions [23] = 518.4424f;
+
+		for (int i=0; i<orbPositions.Length; i+=3)
+		{
+			Instantiate (tigerOrb, new Vector3 (orbPositions[i], orbPositions[i+1], orbPositions[i+2]), Quaternion.identity);
+		}
 	}
 		
 	// Update 
