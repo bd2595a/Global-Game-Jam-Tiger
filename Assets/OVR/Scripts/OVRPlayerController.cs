@@ -56,17 +56,18 @@ public class OVRPlayerController : OVRComponent
 	public float BackAndSideDampen = 0.5f;
 	public float JumpForce 		   = 70f;
 	public float RotationAmount    = 1.5f;
-	public float GravityModifier   = 0.5f;
+	public float GravityModifier   = 1f;
 	public static int orbsCollected=0;
 	public Transform Tigertiger;
 	public Transform tigerOrb;
+	public static Transform hearts;
 		
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
 	private float   FallSpeed 	   = 0.0f;
 	public float secondCounter = 0;
 	public bool past30 = false;
-
+	public bool playerIsCaught = false;
 	
 	// Initial direction of controller (passed down into CameraController)
 	private Quaternion OrientationOffset = Quaternion.identity;			
@@ -154,11 +155,11 @@ public class OVRPlayerController : OVRComponent
 		orbPositions [8] = 223.4777f;
 
 		orbPositions [9] = 306.3888f;
-		orbPositions [10] = 10.81063f;
+		orbPositions [10] = 7.81063f;
 		orbPositions [11] = 394.4182f;
 
 		orbPositions [12] = 438.9704f;
-		orbPositions [13] = 9.145157f;
+		orbPositions [13] = 5.145157f;
 		orbPositions [14] = 268.7023f;
 
 		orbPositions [15] = 557.3252f;
@@ -178,6 +179,13 @@ public class OVRPlayerController : OVRComponent
 			Instantiate (tigerOrb, new Vector3 (orbPositions[i], orbPositions[i+1], orbPositions[i+2]), Quaternion.identity);
 		}
 	}
+
+	public void makeHearts()
+	{
+		Vector3 newPos = transform.TransformPoint( Vector3.forward * 2 ); 
+
+		Instantiate (hearts, newPos, Quaternion.identity);
+		}
 		
 	// Update 
 	new public virtual void Update()
@@ -201,8 +209,9 @@ public class OVRPlayerController : OVRComponent
 			OVRDevice.GetPredictedOrientation(1, ref q);
 			YfromSensor2 = q.eulerAngles.y;
 		}
-		
-		UpdateMovement();
+		if (!GameObject.Find ("hearts")) {
+			UpdateMovement ();
+		}
 
 		Vector3 moveDirection = Vector3.zero;
 		
@@ -217,7 +226,7 @@ public class OVRPlayerController : OVRComponent
 		if (Controller.isGrounded && FallSpeed <= 0)
 			FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));	
 		else
-			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.0017f)) * DeltaTime);	
+			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * DeltaTime);	
 
 		moveDirection.y += FallSpeed * DeltaTime;
 
@@ -288,8 +297,8 @@ public class OVRPlayerController : OVRComponent
 			MoveScale = 0.70710678f;
 			
 		// No positional movement if we are in the air
-		//if (!Controller.isGrounded)	
-		//	MoveScale = 0.0f;
+		if (!Controller.isGrounded)	
+			MoveScale *= 0.5f;
 			
 		MoveScale *= DeltaTime;
 			
