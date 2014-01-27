@@ -56,7 +56,7 @@ public class OVRPlayerController : OVRComponent
 	public float BackAndSideDampen = 0.5f;
 	public float JumpForce 		   = 70f;
 	public float RotationAmount    = 1.5f;
-	public float GravityModifier   = 1f;
+	public float GravityModifier   = 3.7f;
 	public static int orbsCollected=0;
 	public Transform Tigertiger;
 	public Transform tigerOrb;
@@ -167,7 +167,7 @@ public class OVRPlayerController : OVRComponent
 		orbPositions [17] = 144.8766f;
 
 		orbPositions [18] = 507.3252f;
-		orbPositions [19] = 5.64705f;
+		orbPositions [19] = 3.64705f;
 		orbPositions [20] = 144.8766f;
 
 		orbPositions [21] = 323.0608f;
@@ -195,11 +195,6 @@ public class OVRPlayerController : OVRComponent
 		if (secondCounter >= 5) 
 		{
 			DestroyObject(GameObject.Find ("disposablecube"));	
-		}
-		if (secondCounter >=15 && !past30)
-		{
-			Instantiate (Tigertiger, new Vector3 (487.8117f, 20.22332f, 439.9105f), Quaternion.identity);
-			past30=true;
 		}
 		
 		// Test: get Y from sensor 2 

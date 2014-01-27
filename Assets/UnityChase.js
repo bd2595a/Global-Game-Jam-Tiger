@@ -13,7 +13,6 @@
     {
    		SoundSource = gameObject.AddComponent(AudioSource);
    		SoundSource.clip = playlist[Random.Range(0,3)];
-    	SoundSource.Play(); 
     }
      
     function Update()
@@ -37,8 +36,8 @@
 	  	{
 	  		playerCaught=true;
 	  		var theCamera : GameObject =GameObject.Find("OVRPlayerController");
-			Instantiate (hearts, theCamera.transform.TransformPoint( Vector3.forward * 2 ), Quaternion.identity);
-
+			//Instantiate (hearts, theCamera.transform.TransformPoint( Vector3.forward * 2 ), Quaternion.identity);
+			Application.LoadLevel(1);
 	  	}
 	  	
 
