@@ -3,7 +3,6 @@
     var player : Transform;
     var speed : float = 10;
     var chaseDistance = 150;
-    var lockPos : float = 0;
     public var playlist : AudioClip[];
     var SoundSource : AudioSource;
     var playerCaught=false;
@@ -21,12 +20,11 @@
 	    {
 		    transform.LookAt(player);
 		    transform.position += transform.forward*speed*Time.deltaTime;
-		    transform.rotation = Quaternion.Euler(90, lockPos, lockPos);
 	    }
 	     
 	    
 	    var distToPlayer = (transform.position - player.position).sqrMagnitude;
-	    if(distToPlayer<10 && !playerCaught)
+	    if(distToPlayer<50 && !playerCaught)
 	    {
 	    	SoundSource.clip = playlist[Random.Range(0,3)];
 	     	AudioSource.PlayClipAtPoint(SoundSource.clip, transform.position);
@@ -40,8 +38,6 @@
 			Application.LoadLevel(1);
 	  	}
 	  	
-
-	    transform.rotation = Quaternion.Euler(90, lockPos, lockPos);
      
     //if( distToPlayer < 5.0 ) {
     //print ("You lost");
