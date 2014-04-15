@@ -1,4 +1,4 @@
-The Illusion of My World
+Crouching Tiger Hidden Cuddles
 ========================
 
-The Illusion of My World: Global Game Jam 2014
+Crouching Tiger Hidden Cuddles was developed for the 2014 Global Game Jam at American University. 
